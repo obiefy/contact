@@ -3,7 +3,9 @@
     "description": "Laravel package for simple contact form",
     "keywords": [
         "obiefy",
-        "contact"
+        "contact",
+        "contact-form",
+        "laravel"
     ],
     "homepage": "https://github.com/obiefy/contact",
     "license": "MIT",
@@ -11,8 +13,7 @@
     "authors": [
         {
             "name": "Obay Idris",
-            "email": "obayhamed@gmail.com",
-            "role": "Developer"
+            "email": "obayhamed@gmail.com"
         }
     ],
     "require": {
@@ -47,7 +48,7 @@
                 "Obiefy\\Contact\\ContactServiceProvider"
             ],
             "aliases": {
-                "Contact": "Obiefy\\Contact\\ContactFacade"
+                "Contact": "Obiefy\\Contact\\Facades\\Contact"
             }
         }
     }

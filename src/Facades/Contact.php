@@ -1,13 +1,13 @@
 <?php
 
-namespace Obiefy\Contact;
+namespace Obiefy\Facades\Contact;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Obiefy\Contact\Skeleton\SkeletonClass
+ * @see \Obiefy\Contact\Contact
  */
-class ContactFacade extends Facade
+class Contact extends Facade
 {
     /**
      * Get the registered name of the component.
