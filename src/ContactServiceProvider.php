@@ -2,6 +2,7 @@
 
 namespace Obiefy\Contact;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class ContactServiceProvider extends ServiceProvider
@@ -11,39 +12,18 @@ class ContactServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'contact');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'contact');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('contact.php'),
-            ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/contact'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/contact'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/contact'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
-        }
+        $this->registerRoutes();
     }
 
+
+    public function registerRoutes()
+    {
+        Route::group([
+            'namespace' => 'Obiefy\Contact\Http\Controllers'
+        ], function () {
+            $this->loadRoutesFrom(__DIR__.'/routes/api.php');
+        });
+    }
     /**
      * Register the application services.
      */
