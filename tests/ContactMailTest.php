@@ -20,9 +20,12 @@ class ContactMailTest extends TestCase {
     /** @test */
     public function it_sends_email_to_specific_email_address()
     {
-        $this->withoutExceptionHandling();
-        Mail::fake();
         $this->post(route('contact.handle'), $this->getAttributes());
-        Mail::assertSent(ContactMail::class);
+        Mail::assertSent(ContactMail::class, function($mail) {
+
+            $this->assertTrue($mail->hasTo(config('contact.email')));
+
+            return true;
+        });
     }
 }

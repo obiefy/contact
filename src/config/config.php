@@ -1,9 +1,25 @@
 <?php
 
-/*
- * You can place your custom package configuration in here.
- */
 return [
 
+    /*
+    |--------------------------------------------------------------------------
+    | List of Receivers Emails
+    |--------------------------------------------------------------------------
+    */
+    'email' => [
+        'example@obay-dev.com'
+    ],
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Save contact messages to database
+    |--------------------------------------------------------------------------
+    |
+    | If you want to save the message into database make it true
+    |
+    */
     'store' => true
+
 ];

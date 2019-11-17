@@ -14,11 +14,15 @@ class ContactController {
 
     public function __invoke(StoreContactMessageRequest $request)
     {
-        Mail::send(new ContactMail());
+        $message = ContactMessage::make(request()->only(['name', 'email', 'subject', 'body']));
+
+        Mail::to(config('contact.email'))
+            ->send(new ContactMail());
 
         if(config('contact.store')){
-            ContactMessage::create(request()->only(['name', 'email', 'subject', 'body']));
+            $message->save();
         }
+
         return response()->json();
     }
 

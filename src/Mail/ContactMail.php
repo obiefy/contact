@@ -12,9 +12,7 @@ class ContactMail extends Mailable {
 
     public function build()
     {
-        $this->from('sender@obay-dev.com')
-            ->to('reciever@obay-dev.com')
-            ->subject('Message Subject')
+        $this->subject('Subject')
             ->markdown('contact::mails.mail');
     }
 }
