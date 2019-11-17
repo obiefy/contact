@@ -4,5 +4,10 @@ namespace Obiefy\Contact;
 
 class Contact
 {
-    // Build your next great package.
+
+
+    public static function render()
+    {
+        return view('contact::form')->render();
+    }
 }

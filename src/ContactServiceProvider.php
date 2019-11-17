@@ -14,9 +14,9 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->registerRoutes();
 
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'contact');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'contact');
 
-        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
 
@@ -25,7 +25,7 @@ class ContactServiceProvider extends ServiceProvider
         Route::group([
             'namespace' => 'Obiefy\Contact\Http\Controllers'
         ], function () {
-            $this->loadRoutesFrom(__DIR__.'/routes/api.php');
+            $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
         });
     }
     /**
@@ -34,7 +34,7 @@ class ContactServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'contact');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'contact');
 
         // Register the main class to use with the facade
         $this->app->singleton('contact', function () {

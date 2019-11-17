@@ -20,6 +20,13 @@ return [
     | If you want to save the message into database make it true
     |
     */
-    'store' => true
+    'store' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Page path
+    |--------------------------------------------------------------------------
+    */
+    'path' => '/'
 
 ];
