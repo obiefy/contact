@@ -1,3 +1,3 @@
 <?php
 
-Route::post('contact/handle', 'ContactController')->name('contact.handle');
+//Route::post('contact/handle', 'ContactController')->name('contact.handle');

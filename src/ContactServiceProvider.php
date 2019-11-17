@@ -25,7 +25,7 @@ class ContactServiceProvider extends ServiceProvider
         Route::group([
             'namespace' => 'Obiefy\Contact\Http\Controllers'
         ], function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         });
     }
     /**

@@ -4,6 +4,7 @@
 namespace Obiefy\Contact\Http\Controllers;
 
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Obiefy\Contact\Mail\ContactMail;
@@ -12,9 +13,22 @@ use Obiefy\Contact\Requests\StoreContactMessageRequest;
 
 class ContactController {
 
-    public function __invoke(StoreContactMessageRequest $request)
+    public function __construct()
     {
-        $message = ContactMessage::make(request()->only(['name', 'email', 'subject', 'body']));
+    }
+
+    public function __invoke(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'subject' => 'required',
+            'body' => 'required',
+            'validator' => 'required|in:17'
+        ]);
+
+        dd($validatedData);
+        $message = ContactMessage::make($request->validated());
 
         Mail::to(config('contact.email'))
             ->send(new ContactMail());
