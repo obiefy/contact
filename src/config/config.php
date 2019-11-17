@@ -5,4 +5,5 @@
  */
 return [
 
+    'store' => true
 ];

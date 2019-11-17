@@ -13,6 +13,10 @@ class ContactServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerRoutes();
+
+        $this->loadViewsFrom(__DIR__.'/resources/views', 'contact');
+
+        $this->loadMigrationsFrom(__DIR__.'/database/migrations');
     }
 
 
@@ -30,7 +34,7 @@ class ContactServiceProvider extends ServiceProvider
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'contact');
+        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'contact');
 
         // Register the main class to use with the facade
         $this->app->singleton('contact', function () {

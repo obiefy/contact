@@ -4,7 +4,10 @@
 namespace Obiefy\Contact\Tests;
 
 
+use Illuminate\Support\Facades\Mail;
+
 class ContactMessageTest extends TestCase {
+
 
     /** @test */
     public function it_required_message_name()
@@ -54,4 +57,28 @@ class ContactMessageTest extends TestCase {
         $this->post(route('contact.handle'), $this->getAttributes(['validator' => 5]))
             ->assertSessionHasErrors('validator');
     }
+
+
+    /** @test */
+    public function it_make_validation_pass()
+    {
+        $this->withoutExceptionHandling();
+        $this->post(route('contact.handle'), $this->getAttributes())
+            ->assertOk();
+    }
+
+    /** @test */
+    public function it_save_message_in_database_if_the_configuration_is_on()
+    {
+        $this->withoutExceptionHandling();
+        $this->post(route('contact.handle'), $this->getAttributes())
+            ->assertOk();
+
+        // remove the validator item from array
+        $data = $this->getAttributes();
+        unset($data['validator']);
+
+        $this->assertDatabaseHas('contact_messages', $data);
+    }
+
 }
