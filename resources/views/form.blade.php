@@ -5,7 +5,6 @@
     </div>
     <div class="card-body">
 
-        {{ var_dump($errors->all()) }}
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

@@ -27,8 +27,7 @@ class ContactController {
             'validator' => 'required|in:17'
         ]);
 
-        dd($validatedData);
-        $message = ContactMessage::make($request->validated());
+        $message = ContactMessage::make($request->all());
 
         Mail::to(config('contact.email'))
             ->send(new ContactMail());

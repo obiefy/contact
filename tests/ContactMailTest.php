@@ -22,7 +22,6 @@ class ContactMailTest extends TestCase {
     {
         $this->post(route('contact.handle'), $this->getAttributes());
         Mail::assertSent(ContactMail::class, function($mail) {
-
             $this->assertTrue($mail->hasTo(config('contact.email')));
 
             return true;
