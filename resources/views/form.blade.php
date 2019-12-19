@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">{{ __('lang::form.name') }}</label>
                         <input type="text" class="form-control" name="name" id="name" required>
                     </div>
                 </div>

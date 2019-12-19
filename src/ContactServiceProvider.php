@@ -16,6 +16,11 @@ class ContactServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'contact');
 
+        $this->publishes([
+            __DIR__ . '/../resources/views' => resource_path('views/vendor/contact'),
+            __DIR__ . '/../config/config.php' => config_path('contact.php'),
+        ], 'contact');
+
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
