@@ -27,19 +27,19 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="email">Name</label>
+                        <label for="email">{{ __('lang::form.email') }}</label>
                         <input type="email" class="form-control" name="email" id="email" required>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="subject">Subject</label>
+                <label for="subject">{{ __('lang::form.subject') }}</label>
                 <input type="text" class="form-control" name="subject" id="subject" required>
             </div>
 
             <div class="form-group">
-                <label for="body">Message</label>
+                <label for="body">{{ __('lang::form.body') }}</label>
                 <textarea type="text" class="form-control" name="body" id="body" required></textarea>
             </div>
 
@@ -49,7 +49,7 @@
 {{--            </div>--}}
 
             <div class="form-group">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit">{{ __('lang::form.submit') }}</button>
             </div>
 
         </form>
