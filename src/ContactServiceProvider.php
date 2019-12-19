@@ -21,6 +21,8 @@ class ContactServiceProvider extends ServiceProvider
             __DIR__ . '/../config/config.php' => config_path('contact.php'),
         ], 'contact');
 
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'contact');
+
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 
